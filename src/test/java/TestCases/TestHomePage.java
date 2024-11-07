@@ -24,10 +24,4 @@ public class TestHomePage extends DriverSetup{
        Assert.assertEquals(homePage.getPageTitle(), homePage.title);
     }
 
-    @Test
-    public void LoginButton(){
-        getDriver().get(homePage.url);
-        homePage.clickOnElement(homePage.login_signup);
-    }
-
 }

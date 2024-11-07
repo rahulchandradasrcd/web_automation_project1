@@ -2,11 +2,14 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.w3c.dom.Text;
 
 import static Utilities.DriverSetup.getDriver;
 
 public class BasePage {
+
+    public void loadAWebpage(String url){
+        getDriver().get(url);
+    }
 
     public WebElement GetElement(By locator){
         return getDriver().findElement(locator);
@@ -18,7 +21,7 @@ public class BasePage {
 
     public void WriteOnElement(By locator, String text){
         GetElement(locator).clear();
-        GetElement(locator).sendKeys();
+        GetElement(locator).sendKeys(text);
     }
 
     public String getPageUrl(){
@@ -27,6 +30,22 @@ public class BasePage {
 
     public String getPageTitle(){
         return getDriver().getTitle();
+    }
+
+    public Boolean is_element_visible(By locator){
+        try {
+            return GetElement(locator).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public String getErrorMassage(By locator){
+        return GetElement(locator).getText();
+    }
+
+    public String getAttributeName(By locator){
+        return GetElement(locator).getAttribute("validationMessage");
     }
 
 }
