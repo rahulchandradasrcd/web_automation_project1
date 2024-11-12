@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests" thread-count="3">
+    <test verbose="2" preserve-order="true"
+          name="D:/Rahul Personal/Web Automation/TestingProject2/AutomationProjectPOM/src/test/java/TestCases">
+        <classes>
+            <class name="TestCases.LoginTest">
+                <methods>
+                    <include name="TestWithValidCredential"/>
+                    <include name="TestWithValidEmailAndInvalidPassword"/>
+                    <include name="TestWithInvalidEmailAndValidPassword"/>
+                    <include name="TestWithEmptyEmailAndPassword"/>
+                    <include name="TestWithEmailAndEmptyPassword"/>
+                    <include name="TestWithInvalidCredentials"/>
+                </methods>
+            </class>
+            <class name="TestCases.TestHomePage">
+                <methods>
+                    <include name="TestPageUrl"/>
+                    <include name="TestPageTitle"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
